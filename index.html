@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>BEYOND TECH</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/owl.carousel.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/tooplate-style.css">
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      color: #333;
+    }
+
+    /* HERO SECTION */
+    #home {
+      background: url('images/home-bg.jpg') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      text-align: center;
+      color: #fff;
+    }
+
+    #home .overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.4);
+    }
+
+    .home-info {
+      position: relative;
+      z-index: 2;
+    }
+
+    .home-info h3 {
+      font-size: 32px;
+      font-weight: 400;
+    }
+
+    .home-info h1 {
+      font-size: 60px;
+      font-weight: 700;
+      margin-bottom: 25px;
+    }
+
+    .home-info form input,
+    .home-info form button {
+      font-size: 20px;
+      height: 55px;
+    }
+
+    /* WHAT YOU GET */
+    #feature {
+      background: #f9f9f9;
+      padding: 100px 0;
+    }
+
+    #feature .section-title h1 {
+      font-size: 48px;
+      font-weight: 700;
+      color: #222;
+    }
+
+    #feature .section-title p {
+      font-size: 20px;
+      color: #555;
+    }
+
+    #feature .tab-pane-item p {
+      color: #333;
+      font-size: 20px;
+      line-height: 2;
+    }
+
+    #feature .tab-pane-item strong {
+      font-size: 20px;
+      color: #000;
+    }
+
+    /* IMAGE STYLING */
+    #feature .image-box {
+      background: linear-gradient(145deg, #ffffff, #f2f3f6);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    #feature .image-box:hover {
+      transform: translateY(-8px);
+    }
+
+    #feature img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    /* ABOUT SECTION */
+    #about {
+      background: #fff;
+      padding: 100px 0;
+    }
+
+    #about .section-title h1 {
+      font-size: 48px;
+      font-weight: 700;
+      color: #222;
+    }
+
+    #about .section-title p {
+      font-size: 20px;
+      color: #555;
+    }
+
+    #about .about-content p {
+      font-size: 20px;
+      line-height: 2;
+      color: #333;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* PRICING */
+    #pricing {
+      padding: 100px 0;
+    }
+
+    #pricing h1 {
+      font-size: 48px;
+      font-weight: 700;
+    }
+
+    #pricing p {
+      font-size: 20px;
+      color: #555;
+    }
+
+    .pricing-item {
+      transition: 0.3s ease;
+    }
+
+    .pricing-item:hover {
+      box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+      transform: translateY(-5px);
+    }
+
+    .pricing-item h3 {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .pricing-item p {
+      font-size: 22px;
+      color: #007bff;
+      font-weight: 600;
+    }
+
+    .pricing-item ul li {
+      font-size: 19px;
+      line-height: 2;
+    }
+
+    /* CONTACT */
+    #contact {
+      background: #f7f7f7;
+      padding: 100px 0;
+    }
+
+    #contact .section-title h1 {
+      font-size: 48px;
+      font-weight: 700;
+    }
+
+    #contact .section-title p {
+      font-size: 20px;
+      color: #555;
+    }
+
+    #contact .form-control {
+      margin-bottom: 20px;
+      font-size: 18px;
+      height: 55px;
+    }
+
+    #contact textarea {
+      font-size: 18px;
+    }
+
+    #contact button {
+      font-size: 20px;
+      height: 55px;
+    }
+
+    /* SUCCESS POPUP */
+    .success-popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      background: white;
+      color: #333;
+      padding: 30px 50px;
+      border-radius: 10px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+      text-align: center;
+      z-index: 9999;
+      transition: 0.3s ease;
+    }
+
+    .success-popup.show {
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .success-popup h3 {
+      margin-bottom: 10px;
+      color: #28a745;
+      font-size: 24px;
+    }
+
+    /* FOOTER */
+    #footer p {
+      font-size: 16px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAVIGATION -->
+  <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon icon-bar"></span>
+          <span class="icon icon-bar"></span>
+          <span class="icon icon-bar"></span>
+        </button>
+        <a href="#home" class="navbar-brand">BEYOND TECH</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="#home" class="smoothScroll">Home</a></li>
+          <li><a href="#feature" class="smoothScroll">Features</a></li>
+          <li><a href="#about" class="smoothScroll">About</a></li>
+          <li><a href="#pricing" class="smoothScroll">Pricing</a></li>
+          <li><a href="#contact" class="smoothScroll">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="overlay"></div>
+    <div class="home-info">
+      <h3>Professional landing page</h3>
+      <h1>We make technology easy for you!</h1>
+      <form action="https://formspree.io/f/mvgwejoa" method="POST" class="online-form" id="get-started-form">
+        <input type="email" name="email" class="form-control" placeholder="Enter your email" required="">
+        <button type="submit" class="form-control">Get started</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- WHAT YOU GET -->
+  <section id="feature">
+    <div class="container">
+      <div class="section-title text-center mb-5">
+        <h1>What You Get with Beyond Tech</h1>
+        <p>All-in-one solutions to simplify your tech journey — from setup to success.</p>
+      </div>
+
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <div class="tab-pane-item">
+            <p><strong>✅ Responsive Design:</strong> Your website looks perfect on phones, tablets, and desktops.</p>
+            <p><strong>✅ Custom Solutions:</strong> Tailored digital products built for your goals and brand identity.</p>
+            <p><strong>✅ 24/7 Support:</strong> We’re always here when you need help — just send a message.</p>
+            <p><strong>✅ SEO Optimization:</strong> Boost your online visibility with optimized content structure.</p>
+            <p><strong>✅ Free Deployment Assistance:</strong> Get help launching your site seamlessly.</p>
+          </div>
+        </div>
+        <div class="col-md-6 text-center">
+          <div class="image-box">
+            <img src="images/feature-mockup.png" alt="PC showing website preview">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="section-title text-center mb-5">
+        <h1>About Beyond Tech</h1>
+        <p>Our mission is to empower businesses and individuals with seamless technology solutions that simplify, automate, and accelerate digital growth. We combine innovation, design, and expertise to turn ideas into functional digital products that deliver real impact.</p>
+      </div>
+      <div class="about-content">
+        <p>Founded with the vision of bridging the gap between technology and people, Beyond Tech specializes in crafting websites, digital platforms, and applications that are intuitive, visually appealing, and performance-optimized. We believe in building lasting partnerships by providing ongoing support and solutions tailored to your unique needs.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="bg-white">
+    <div class="container text-center">
+      <div class="section-title mb-5">
+        <h1>Pricing</h1>
+        <p>Choose the perfect plan for your website — flexible, transparent, and affordable.</p>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="pricing-item p-4 border rounded">
+            <h3>Basic</h3>
+            <p>UGX 400,000</p>
+            <ul class="list-unstyled">
+              <li>✅ 3 Pages</li>
+              <li>✅ Responsive Design</li>
+              <li>✅ Contact Form Integration</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="pricing-item p-4 border rounded">
+            <h3>Standard</h3>
+            <p>UGX 700,000</p>
+            <ul class="list-unstyled">
+              <li>✅ 5 Pages</li>
+              <li>✅ SEO Optimization</li>
+              <li>✅ WhatsApp Integration</li>
+              <li>✅ Free Deployment Help</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="pricing-item p-4 border rounded">
+            <h3>Premium</h3>
+            <p>UGX 1,050,000</p>
+            <ul class="list-unstyled">
+              <li>✅ 8+ Pages</li>
+              <li>✅ Custom Design</li>
+              <li>✅ Domain + Hosting Setup</li>
+              <li>✅ Lifetime Support</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-title text-center">
+        <h1>Get in Touch</h1>
+        <p>We’d love to hear from you! Let’s create something great together.</p>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <form id="contact-form" action="https://formspree.io/f/mvgwejoa" method="POST">
+            <input type="text" class="form-control" name="name" placeholder="Your Name" required>
+            <input type="email" class="form-control" name="email" placeholder="Email Address" required>
+            <textarea class="form-control" name="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUCCESS POPUP -->
+  <div class="success-popup" id="successPopup">
+    <h3>🎉 Thank You!</h3>
+    <p>Your message has been sent successfully.</p>
+  </div>
+
+  <footer id="footer">
+    <div class="container text-center">
+      <p>Copyright &copy; 2025 Beyond Tech. Design by <a href="mailto:lornanaula0042@gmail.com" target="_blank">LORNA NAULA</a></p>
+    </div>
+  </footer>
+
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/smoothscroll.js"></script>
+  <script src="js/custom.js"></script>
+
+  <script>
+    function showSuccessPopup(message) {
+      const popup = document.getElementById('successPopup');
+      popup.querySelector('p').textContent = message;
+      popup.classList.add('show');
+      setTimeout(() => popup.classList.remove('show'), 4000);
+    }
+
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      fetch(this.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(res => {
+        if (res.ok) {
+          showSuccessPopup('Your message has been sent successfully!');
+          this.reset();
+        }
+      });
+    });
+
+    document.getElementById('get-started-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      fetch(this.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).then(res => {
+        if (res.ok) {
+          showSuccessPopup('Thank you for signing up! We’ll reach out soon.');
+          this.reset();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
