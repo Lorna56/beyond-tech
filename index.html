@@ -17,15 +17,17 @@
 
     /* HERO SECTION */
     #home {
-      background: url('images/home-bg.jpg') no-repeat center center/cover;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      text-align: center;
-      color: #fff;
-    }
+  background: url('images/Group.jpg') no-repeat center center/cover;
+  min-height: 90vh; /* smaller height than full screen */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  color: #fff;
+  padding-top: 100px; /* adds space for fixed navbar */
+  padding-bottom: 60px;
+}
 
     #home .overlay {
       position: absolute;
@@ -225,11 +227,27 @@
       font-size: 24px;
     }
 
-    /* FOOTER */
-    #footer p {
-      font-size: 16px;
-      margin-top: 30px;
-    }
+  /* FOOTER */
+#footer {
+  background: #111; /* optional: adds contrast */
+  color: #fff;
+  padding: 20px 0; /* reduced from default ~60px */
+}
+
+#footer p {
+  font-size: 14px;
+  margin: 0; /* remove top margin */
+}
+
+#footer a {
+  color: #0d6efd;
+  text-decoration: none;
+}
+
+#footer a:hover {
+  text-decoration: underline;
+}
+
   </style>
 </head>
 
